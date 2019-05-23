@@ -1,0 +1,46 @@
+Empresa de Tecnologia Future Mobile ,busca 2 señoritas con muy buena presencia para trabajo de anfitriona y vendedora los fines de semana (Sábado y Domingo) 
+de 9am a 6pm. 
+El trabajo consiste en promocionar en diversos centros comerciales un servicio de facturacion electronica autorizado por SUNAT
+ Se ofrece sueldo de 100 soles por dia
+ y el 100% en comisiones de las ventas que realice. Se brindara transporte y almuerzo.
+ Requisitos: Tener muy buena presencia. Comunicarse al 924225809 o visite la pagina web de la empresa: www.futuremobile.com.pe
+
+
+
+
+
+
+
+
+
+
+Edit_Id.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if(!nombre_cliente.getText().toString().contains("Cliente")) {
+                    tipo_cliente.setText("");
+                    cantidad_cliente.setText("");
+                    nombre_cliente.setText("Cliente");
+                    objeto_producto_creditos.clear();
+                    prospect_buttom.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start,
+                                          int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start,
+                                      int before, int count) {
+                Edit_Id.setError(null);
+            }
+        });
+
+
+String mEnviadoAServidor;
+
+
+ mEnviadoAServidor="FALSE";

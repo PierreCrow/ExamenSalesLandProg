@@ -1,0 +1,275 @@
+COMPROBANTE:
+
+Integer id_vendedor, 
+String Fecha,
+String Tipo_Documento_Identidad_Cliente,
+String Nro_Documento_Identidad_Cliente,
+String Razon_Social_Cliente, 
+String Direccion_Cliente, 
+String Telefono_Cliente, 
+String Email_Cliente,
+ArrayList<Item> Items, 
+String SubTotal,
+String IGV, 
+String Total, 
+String Tipo_Comprobante,
+String Operacion_Gravada, 
+String Operacion_Inafecta,
+String Operacion_Exonerada, 
+String Moneda,
+String Descuento, 
+String Otros_Cargos, 
+String Condicion_Pago, 
+String Concepto_Descuento,
+String Concepto_Otros_Cargos, 
+String Nombre_Vendedor,
+String Nro_Serie, 
+String Nombre_Archivo, 
+String External_ID, 
+String Total_en_Letras, 
+String Codigo_Hash,
+String Codigo_QR, 
+String Link_XML, 
+String Link_PDF, 
+String Link_CDR, 
+String Porcentaje_IGV,
+String Estado_Comprobante_en_SUNAT, 
+String Codigo_Tipo_Doc_Identidad_Cliente, 
+String Codigo_Pais_Cliente,   
+String Ubigeo_Cliente, 
+String Hora_Emision, 
+String Fecha_Vencimiento, 
+String Nro_Orden_de_Compra,
+String Caja, 
+String Operacion_Gratuita, 
+String Total_Exportacion, 
+String Total_Impuestos,
+String Total_Valor,
+String Mensaje_Error_SUNAT,
+String Observaciones
+
+----------------------------------------------------------------------------------
+
+
+
+USUARIO
+
+Integer id_usuario, 
+String Usuario, 
+String Contrasena, 
+String Cantidad_Logins,
+String Fecha_Registro
+
+
+(EN EL CELULAR SOLO NECESITABA ESO X ESO SOLO CREE ESOS CAMPOS PERO EN LA BBDD DEL SERVIDOR
+ ESTA MAS COMPLETO CON NOMBRES ,APELLIDOS DOC,ETC)
+(SEGUN LO CONVERSADO AYER ESTA TABLA Y LA DE EMPRESA SERIAN UNA SOLA XD)
+
+
+----------------------------------------------------------------------------------
+
+
+EMPRESA
+
+Integer id_empresa,
+Integer id_usuario, 
+String RUC, 
+String Razon_Social, 
+String Ubigeo, 
+String Domicilio_Fiscal,
+String Telefono, 
+String Email, 
+String Usuario_SOL, 
+String Clave_SOL, 
+String URL_Certificado_Digital,
+String URL_Foto, 
+String Fecha_Registro, 
+String Departamento, 
+String Nombre_Comercial, 
+String Rubro,
+String Notificacion_Stock, 
+String Tipo_Cuenta, 
+String Cuenta_Prueba_Vencida,
+String Token_Api_Facturacion,
+String Activado
+
+
+----------------------------------------------------------------------------------
+
+
+GASTO
+
+Integer id_item,
+String Nombre_Item, 
+Integer id_proveedor, 
+String Tipo_Gasto, 
+String Concepto_Gasto,
+String Nombre_Proveedor, 
+Integer Cantidad, 
+String Unidad_Medida,
+String Monto, 
+String Monto_Unitario, 
+String Observaciones, 
+String Fecha, 
+String Moneda
+
+
+
+----------------------------------------------------------------------------------
+
+
+ITEM
+
+Integer id_almacen,
+Integer id_categoria, 
+String Codigo, 
+String Tipo_Item, 
+String Descripcion, 
+String Unidad_Medida,
+String Unidad_Medida_Sunat, 
+String Afectacion_IGV, 
+String Codigo_Tributo, 
+String Valor_Unitario, 
+String Precio_Unitario
+,String IGV, 
+String Stock, 
+String URL_Foto, 
+String Fecha_Registro,
+String Cantidad_Items_Comprobante, 
+String Precio_Original, 
+String Detalles,
+String Descuento_Item_Comprobante, 
+String Categoria,
+String Codigo_Afectacion_IGV
+
+
+
+
+----------------------------------------------------------------------------------
+
+
+
+
+ALMACEN
+
+Integer id_almacen,
+String Nombre, 
+String Detalles, 
+String Codigo
+
+
+
+----------------------------------------------------------------------------------
+
+
+
+
+
+CATEGORIAITEM
+
+Integer id_categoria,
+String Nombre, 
+String Codigo,
+String Detalles
+
+
+
+----------------------------------------------------------------------------------
+
+
+
+
+
+CLIENTE
+
+Integer id_cliente,
+String Tipo_Documento_Identidad, 
+String Nro_Documento_Identidad, 
+String Razon_Social, 
+String Direccion, 
+String Telefono, 
+String Email, 
+String Fecha_Registro
+
+
+
+
+----------------------------------------------------------------------------------
+
+
+
+
+
+PROVEEDOR
+
+Integer id_proveedor,
+String Nombre, 
+String Tipo_Documento_Identidad, 
+String Nro_Documento_Identidad, 
+String Direccion,
+String Telefono, 
+String Nombre_Contacto, 
+String Email
+
+
+
+----------------------------------------------------------------------------------
+
+
+
+
+VENDEDOR
+
+Integer id_vendedor,
+Integer id_empresa, 
+String Nombres, 
+String Apellidos, 
+String Edad,
+String Sexo, 
+String Tipo_Documento_Identidad, 
+String Nro_Documento_Identidad,
+String Direccion, 
+String Telefono, 
+String Email, 
+String Latitud, 
+String Longitud,
+String URL_Foto, 
+String Fecha_Registro
+
+
+
+----------------------------------------------------------------------------------
+
+
+
+(esta tabla creo q puede ir dentro de la tabla comprobante ya que tiene casi los mismos 
+campos y poner un flag en la tabla comprobante para q no envie a la sunat y para q no cuente
+en los reportes)
+
+COTIZACION
+
+Integer id_cotizacion,
+Integer id_vendedor, 
+String Fecha,
+String Tipo_Documento_Identidad_Cliente,
+String Nro_Documento_Identidad_Cliente,
+String Razon_Social_Cliente, 
+String Direccion_Cliente, 
+String Telefono_Cliente, 
+String Email_Cliente,
+ArrayList<Item> Items, 
+String SubTotal, 
+String IGV, 
+String Total, 
+String Moneda,
+String Descuento, 
+String Otros_Cargos, 
+String Condicion_Pago, 
+String Concepto_Descuento,
+String Concepto_Otros_Cargos, 
+String Nombre_Vendedor,
+String Nro_Serie, 
+String Total_en_Letras, 
+String Hora_Emision,
+String Caja, 
+String Observaciones

@@ -1,0 +1,263 @@
+
+
+LINK EMPRESA : http://www.futuremobile.com.pe/facturapp.html
+
+LINK PLAYSTORE : https://play.google.com/store/apps/details?id=com.futuremobile.facturapp
+
+CUENTA PRUEBA : usuario: admin
+                pass:    123456
+
+
+-----------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------
+
+
+
+INFO:
+
+-UN PRODUCTO NECESITA DE UNA CATEGORIA Y UN ALMACEN.
+-UN SERVICIO NECESITA SOLO DE UNA CATEGORIA.
+-LA TABLA GASTO SIRVE TANTO PARA LAS ENTRADAS DE STOCK 
+ DE LOS PRODUCTOS Y PARA LOS GASTOS DE LA EMPRESA.
+-PARA AGREGAR STOCK A UN PRODUCTO SE DEBE AGREGAR UN PROVEEDOR PRIMERO
+-PARA VENDER UN PRODUCTO SE NECESITA QUE TENGA STOCK
+-POR CADA VENTA SE DESCUENTA EL STOCK DEL PRODUCTO
+-MENSAJE AL USUARIO CUANDO TIENE POCO STOCK (5)
+
+
+
+
+-----------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------
+
+
+
+TABLAS:
+
+
+ALMACEN
+Integer id_almacen ,
+String Nombre,
+String Detalles, 
+String Codigo
+
+
+
+CATEGORIA
+Integer id_categoria ,
+String Nombre,
+String Codigo,
+String Detalles
+
+
+
+CLIENTE
+Integer id_cliente ,
+String Tipo_Documento_Identidad,
+String Nro_Documento_Identidad,
+String Razon_Social, 
+String Direccion, 
+String Telefono, 
+String Email,
+String Fecha_Registro
+
+
+
+EMPRESA
+Integer id_empresa,
+Integer id_usuario,
+String RUC, 
+String Razon_Social,
+String Ubigeo, 
+String Domicilio_Fiscal,
+String Telefono,
+String Email, 
+String Usuario_SOL, 
+String Clave_SOL, 
+String URL_Certificado_Digital,
+String URL_Foto, 
+String Fecha_Registro,
+String Departamento,
+String Nombre_Comercial,
+String Rubro,
+String Notificacion_Stock, 
+String Tipo_Cuenta, 
+String Cuenta_Prueba_Vencida,
+String Token_Api_Facturacion
+
+
+
+USUARIO
+Integer id_usuario,
+String Usuario,
+String Contrasena,
+String Cantidad_Logins,
+String Fecha_Registro
+
+
+
+PROVEEDOR
+Integer id_proveedor,
+String Nombre,
+String Tipo_Documento_Identidad,
+String Nro_Documento_Identidad,
+String Direccion,
+String Telefono, 
+String Nombre_Contacto, 
+String Email
+
+
+
+
+ITEM
+Integer id_item,
+Integer id_almacen,
+Integer id_categoria, 
+String Codigo, 
+String Tipo_Item, 
+String Descripcion, 
+String Unidad_Medida,
+String Unidad_Medida_Sunat, 
+String Afectacion_IGV, 
+String Codigo_Tributo, 
+String Valor_Unitario, 
+String Precio_Unitario, 
+String IGV, 
+String Stock, 
+String URL_Foto, 
+String Fecha_Registro,
+String Cantidad_Items_Comprobante, 
+String Precio_Original, 
+String Detalles,
+String Descuento_Item_Comprobante, 
+String Categoria,
+String Codigo_Afectacion_IGV
+
+
+
+
+COMPROBANTE
+Integer id_comprobante,
+Integer id_vendedor, 
+String Fecha,
+String Tipo_Documento_Identidad_Cliente,
+String Nro_Documento_Identidad_Cliente,
+String Razon_Social_Cliente, 
+String Direccion_Cliente, 
+String Telefono_Cliente, 
+String Email_Cliente,
+ArrayList<Item> Items, 
+String SubTotal, 
+String IGV, 
+String Total, 
+String Tipo_Comprobante,
+String Operacion_Gravada, 
+String Operacion_Inafecta,
+String Operacion_Exonerada, 
+String Moneda,
+String Descuento, 
+String Otros_Cargos, 
+String Condicion_Pago, 
+String Concepto_Descuento,
+String Concepto_Otros_Cargos, 
+String Nombre_Vendedor,
+String Nro_Serie, 
+String Nombre_Archivo, 
+String External_ID, 
+String Total_en_Letras, 
+String Codigo_Hash,
+String Codigo_QR, 
+String Link_XML, 
+String Link_PDF, 
+String Link_CDR, 
+String Porcentaje_IGV,
+String Estado_Comprobante_en_SUNAT, 
+String Codigo_Tipo_Doc_Identidad_Cliente, 
+String Codigo_Pais_Cliente,
+String Ubigeo_Cliente, 
+String Hora_Emision, 
+String Fecha_Vencimiento, 
+String Nro_Orden_de_Compra,
+String Caja, 
+String Operacion_Gratuita, 
+String Total_Exportacion, 
+String Total_Impuestos,
+String Total_Valor,
+String Mensaje_Error_SUNAT,
+String Observaciones,
+String Envio_Automatico_SUNAT,
+String Numeracion_Boleta, 
+String Numeracion_Factura
+
+
+
+
+GASTO
+Integer id_gasto,
+Integer id_item,
+String Nombre_Item, 
+Integer id_proveedor, 
+String Tipo_Gasto, 
+String Concepto_Gasto,
+String Nombre_Proveedor, 
+Integer Cantidad, 
+String Unidad_Medida,
+String Monto, 
+String Monto_Unitario, 
+String Observaciones, 
+String Fecha, 
+String Moneda,
+String Es_Costo
+
+
+
+VENDEDOR
+Integer id_empresa, 
+String Nombres, 
+String Apellidos, 
+String Edad,
+String Sexo, 
+String Tipo_Documento_Identidad, 
+String Nro_Documento_Identidad,
+String Direccion, 
+String Telefono, 
+String Email, 
+String Latitud, 
+String Longitud,
+String URL_Foto, 
+String Fecha_Registro
+
+
+
+CATALOGO SUNAT
+Integer id_catalogo,
+String Nro_Catalogo, 
+String Codigo, 
+String Descripcion, 
+String Orden,
+String Valor_1, 
+String Valor_2, 
+String Valor_3, 
+String Valor_4,
+String Estado, 
+String Fecha_Registro
+
+
+
+CONFIGURACION
+Integer id_configuracion, 
+Integer id_empresa, 
+String Tipo_Impresion, 
+String Lugar_Almacenamiento_Movil,
+String Con_Vendedores,
+String Modo_Vendedor,
+String Precio_con_IGV,
+String Con_Cajas,
+String Nro_Cajas,
+String Tipo_Emision,
+String Numeracion_Boleta, 
+String Numeracion_Factura
+
+

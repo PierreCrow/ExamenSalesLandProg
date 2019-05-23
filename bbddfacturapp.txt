@@ -1,0 +1,170 @@
+create database FacturApp
+
+
+
+
+CREATE TABLE Usuario
+(
+id_usuario int Identity(1,1) ,
+Usuario varchar(50) NOT NULL,
+Contrasena varchar(40) NOT NULL,
+CantidadLogins int ,
+UltimoLogin varchar(20) ,
+Nombres varchar(60) NOT NULL,
+Apellidos varchar(60) NOT NULL,
+Tipo_Documento_Identidad varchar(30) NOT NULL,
+Nro_Documento_Identidad varchar(20) NOT NULL,
+Telefono varchar(20) NOT NULL,
+Direccion varchar(100) NOT NULL,
+Fecha_Registro DateTime ,
+Tipo_Cuenta varchar(40) NOT NULL,
+Cuenta_Prueba_Vencida bit ,
+Activo bit,
+
+
+CONSTRAINT PK_Usuario PRIMARY KEY(id_usuario)
+)
+
+
+
+
+CREATE TABLE Empresa
+(
+id_empresa int Identity(1,1) ,
+id_usuario int  ,
+RUC varchar(30) NOT NULL,
+Razon_Social varchar(70) NOT NULL,
+Ubigeo varchar(20) ,
+Domicilio_Fiscal varchar(100) ,
+Telefono varchar(20) ,
+Email varchar(70) ,
+Usuario_SOL varchar(30) ,
+Clave_SOL varchar(30) ,
+URL_Certificado_Digital varchar(100) ,
+URL_Foto varchar(100) ,
+Fecha_Registro DateTime ,
+Departamento varchar(40) NOT NULL,
+Nombre_Comercial varchar(60) NOT NULL,
+Rubro varchar(40) ,
+
+Token_Api_Facturacion varchar(2000) ,
+
+CONSTRAINT PK_Empresa PRIMARY KEY(id_empresa),
+CONSTRAINT FK_EmpresaUsuario FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario)
+
+)
+
+
+select *from Usuario
+select *from Empresa
+
+
+
+
+
+
+
+create procedure sp_AgregaUsuario_Empresa
+
+@Usuario varchar(50) ,
+@Contrasena varchar(40) ,
+@Nombres varchar(60) ,
+@Apellidos varchar(60),
+@Tipo_Documento_Identidad varchar(30) ,
+@Nro_Documento_Identidad varchar(20) ,
+@Telefono varchar(20) ,
+@Direccion varchar(100) ,
+
+
+@RUC varchar(30) ,
+@Razon_Social varchar(70) ,
+@Domicilio_Fiscal varchar(100) ,
+@TelefonoEmpresa varchar(20) ,
+@Email varchar(70) ,
+@Departamento varchar(40) ,
+@Nombre_Comercial varchar(60) ,
+@Rubro varchar(40) ,
+
+@Tipo_Cuenta varchar(40) ,
+
+@NuevoUsuario varchar(50) OUTPUT
+
+ as
+
+ DECLARE @nuevoID int; 
+ Declare @user varchar(60);
+ declare @pass varchar(60);
+
+ insert into Usuario(Usuario,Contrasena,CantidadLogins,UltimoLogin,Nombres,Apellidos,Tipo_Documento_Identidad,Nro_Documento_Identidad,Telefono,Direccion,Fecha_Registro,Tipo_Cuenta,Cuenta_Prueba_Vencida,Activo)
+       values(@Usuario,@Contrasena,0,'',@Nombres,@Apellidos,@Tipo_Documento_Identidad,@Nro_Documento_Identidad,@Telefono,@Direccion,SYSDATETIME(),@Tipo_Cuenta,0,1)
+
+
+	   SELECT TOP 1 @nuevoID = id_usuario FROM Usuario order by id_usuario desc
+
+	    insert into Empresa(id_usuario,RUC,Razon_Social,Ubigeo,Domicilio_Fiscal,Telefono,Email,Usuario_SOL,Clave_SOL,URL_Certificado_Digital,URL_Foto,Fecha_Registro,Departamento,Nombre_Comercial,Rubro,Token_Api_Facturacion)
+       values(@nuevoID,@RUC,@Razon_Social,'',@Domicilio_Fiscal,@TelefonoEmpresa,@Email,'','','','',SYSDATETIME(),@Departamento,@Nombre_Comercial,@Rubro,'')
+
+
+	   SELECT TOP 1 @user = Usuario FROM Usuario order by id_usuario desc
+
+	   SELECT TOP 1 @pass = Contrasena FROM Usuario order by id_usuario desc
+
+	   set @NuevoUsuario='User:'+@user+' - Pass:'+@pass
+
+	   select @NuevoUsuario
+
+	   
+
+
+
+	   exec sp_AgregaUsuario_Empresa 'FutureMobilee','pass','Pierre','SantaGAdea','','','','','','','','','','','','','','' 
+	   
+	   declare @aaaa varchar(100)
+	   exec sp_Login 'aa','aa',@aaaa
+
+
+
+	   alter procedure sp_Login
+	   @Usuario varchar(100),
+	   @Contrasena varchar(100),
+	   @Respuesta varchar(100) OUTPUT
+	   as
+
+	   declare @resp varchar(100);
+
+
+	 
+
+
+	  
+
+			   IF NOT EXISTS (select   Usuario.id_usuario,Empresa.id_empresa,Tipo_Cuenta, Empresa.Nombre_Comercial,
+	            Empresa.RUC,Empresa.Domicilio_Fiscal,
+	            Empresa.Email,Empresa.Telefono
+			   from Usuario
+
+			   inner join Empresa on Empresa.id_usuario=Usuario.id_usuario
+
+			   where Usuario.Usuario=@Usuario and Usuario.Contrasena=@Contrasena) 
+BEGIN
+ SET @resp='FAIL'
+END
+
+ELSE
+BEGIN
+
+   select   Usuario.id_usuario,Empresa.id_empresa,Tipo_Cuenta, Empresa.Nombre_Comercial,
+	            Empresa.RUC,Empresa.Domicilio_Fiscal,
+	            Empresa.Email,Empresa.Telefono
+			   from Usuario
+
+			   inner join Empresa on Empresa.id_usuario=Usuario.id_usuario
+
+			   where Usuario.Usuario=@Usuario and Usuario.Contrasena=@Contrasena
+
+  SET @resp='OK'
+END
+
+set @Respuesta=@resp
+
+select @Respuesta

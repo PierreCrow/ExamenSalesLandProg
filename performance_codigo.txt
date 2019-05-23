@@ -1,0 +1,124 @@
+
+
+ et_direccion.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View view, int i, KeyEvent keyEvent) {
+
+                if (i==KeyEvent.KEYCODE_ENTER)
+                {
+                    // Just ignore the [Enter] key
+                    return true;
+                }
+                // Handle all other keys in the default way
+                return false;
+            }
+        });
+
+
+--------------------------------------------------------------
+
+public ProgressDialog dialog;
+
+dialog = new ProgressDialog(getActivity());
+
+
+
+ dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+            dialog.setCanceledOnTouchOutside(false);
+            dialog.setMessage("Generando Backup");
+            dialog.show();
+
+
+ if (dialog.isShowing()) {
+            dialog.dismiss();
+        }
+
+--------------------------------------------------------------
+
+
+  try{
+                    
+                    
+                }
+                catch (Exception ex)
+                {
+                    
+                }
+
+--------------------------------------------------------------
+
+
+    android:lines="1"
+                    android:maxLength="20"
+                    android:maxLines="1"
+                    android:singleLine="true"
+
+
+android:maxWidth="size"
+
+
+--------------------------------------------------------------
+
+
+
+    void Muestradialog(Context ctx)
+    {
+        DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                switch (which){
+                    case DialogInterface.BUTTON_POSITIVE:
+
+
+                    
+
+                        Elimina_Comprobante task= new Elimina_Comprobante();
+                        task.execute();
+
+
+                        break;
+
+                    case DialogInterface.BUTTON_NEGATIVE:
+                        dismiss();
+                        break;
+                }
+            }
+        };
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(ctx);
+        builder.setMessage("¿Esta seguro que desea anular el documento ?").setPositiveButton("Si", dialogClickListener)
+                .setNegativeButton("No", dialogClickListener).show();
+    }
+
+
+
+--------------------------------------------------------------
+
+
+guardar sd card
+https://stackoverflow.com/questions/7887078/android-saving-file-to-external-storage
+
+
+-------------------------------------------------------------
+             SQL SERVER
+-------------------------------------------------------------
+
+
+You could also do this, if you expect that the query might often return rows (especially a lot of rows), which may offer a better opportunity to short circuit:
+
+IF EXISTS (SELECT ...)
+BEGIN
+  PRINT 'Do nothing.';
+END
+ELSE
+BEGIN
+  INSERT ...
+END
+
+...since IF EXISTS will return immediately after it hits the very first row that matches.
+
+
+
+------------------------------------------------------------------------
+
+http://www.pymetec.cl/ventas.html

@@ -1,0 +1,26 @@
+
+CUENTAS:
+
+
+1. CUENTA BASICA : S/19.99
+		  -No necesita internet
+		  -Emision de comprobantes (boletas,facturas)
+		  -Comprobantes ilimitados (dependiendo capacidad de celular)
+		  -Reportes estadisticos
+		  -No declara a SUNAT
+
+
+
+
+2. CUENTA EN LA NUBE: S/49.99
+		     -Necesita internet
+		     -Informacion protegida en la nube
+		     -Maximo 500 comprobantes al mes
+		     -Recargo de 0.09 centimos por cada comprobante extra
+		     -Reportes estadisticos
+		     -Acceso desde varios celulares y PCs a la ves
+		     -Declara a SUNAT
+		     -Necesita certificado digital para declarar
+
+
+                 

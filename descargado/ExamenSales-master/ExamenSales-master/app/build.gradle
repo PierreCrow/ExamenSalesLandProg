@@ -1,0 +1,150 @@
+apply plugin: 'com.android.application'
+
+android {
+
+    lintOptions {
+
+        checkReleaseBuilds false
+
+    }
+
+
+    signingConfigs {
+        config {
+            keyAlias 'xxx'
+            keyPassword 'xxx'
+            storeFile file('xxx')
+            storePassword 'xxx'
+        }
+    }
+    compileSdkVersion 27
+    buildToolsVersion '27.0.3'
+    defaultConfig {
+        applicationId 'com.salesland.personas'
+        minSdkVersion 23
+        targetSdkVersion 26
+        versionName '1.0.0'
+        multiDexEnabled = true
+        versionCode 1
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            debuggable true
+            signingConfig signingConfigs.config
+        }
+        debug {
+            minifyEnabled false
+            debuggable true
+
+        }
+        repositories {
+            maven { url 'https://oss.sonatype.org/content/repositories/ksoap2-android-releases/' }
+            mavenCentral()
+            maven { url "https://jitpack.io" }
+        }
+    }
+    productFlavors {
+    }
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/ASL2.0'
+        exclude 'META-INF/INDEX.LIST'
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+    }
+
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:support-v4:27.1.1'
+    implementation "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
+    testImplementation "junit:junit:$rootProject.junitVersion"
+    implementation "com.android.support:design:$rootProject.supportLibraryVersion"
+    implementation "com.android.support.constraint:constraint-layout:$rootProject.constraintLayoutVersion"
+    implementation 'com.android.support:cardview-v7:27.1.1'
+
+    //    Analytics
+    implementation 'com.google.firebase:firebase-core:16.0.0'
+
+    //    Room - Local Database
+    implementation "android.arch.persistence.room:runtime:$rootProject.roomVersion"
+    annotationProcessor "android.arch.persistence.room:compiler:$rootProject.roomVersion"
+    implementation "android.arch.persistence.room:rxjava2:$rootProject.roomVersion"
+
+    //    ButterKnife - View Injection
+    implementation "com.jakewharton:butterknife:$rootProject.butterKnifeVersion"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.butterKnifeVersion"
+
+    //    Retrofit - Networking
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.converterGsonVersion"
+    implementation "com.squareup.okhttp3:okhttp:$rootProject.okhttpVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.okhttpVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$rootProject.retrofitVersion"
+
+    //    Glide - Image Handling
+    implementation 'com.github.bumptech.glide:glide:3.8.0'
+
+    // implementation "com.github.bumptech.glide:glide:$rootProject.glideVersion"
+
+    // annotationProcessor "com.github.bumptech.glide:compiler:$rootProject.glideVersion"
+
+    //    RxJava - RxAndroid
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.14'
+
+    //    Log
+    implementation 'com.jakewharton.timber:timber:4.6.1'
+
+    //    Dagger - Dependency Injection
+    implementation "com.google.dagger:dagger:$rootProject.daggerVersion"
+    annotationProcessor "com.google.dagger:dagger-compiler:$rootProject.daggerVersion"
+
+    //    provided 'org.glassfish:javax.annotation:10.0-b28' //Required by Dagger2
+
+    //    Espresso - Testing
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:3.0.1', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+
+    //    Charts
+
+    //implementation 'com.github.PhilJay:MPAndroidChart:v3.0.2'
+
+    //      https://github.com/thoughtbot/expandable-recycler-view
+    implementation 'com.thoughtbot:expandablerecyclerview:1.3'
+
+    // https://github.com/daimajia/AndroidSwipeLayout
+    implementation 'com.daimajia.swipelayout:library:1.2.0@aar'
+
+    //    QR Lib
+    implementation 'com.google.android.gms:play-services-vision:15.0.2'
+    implementation 'com.google.code.ksoap2-android:ksoap2-android:3.6.1'
+    implementation 'com.android.support:multidex:1.0.1'
+    implementation 'de.hdodenhof:circleimageview:2.1.0'
+    implementation 'com.itextpdf:itextg:5.5.10'
+    implementation 'com.google.cloud:google-cloud-translate:1.51.0'
+
+}
+
+
+
+
+

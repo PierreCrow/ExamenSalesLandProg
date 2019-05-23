@@ -1,0 +1,59 @@
+    <!-- Clients Block -->
+
+    <section class="crumina-module crumina-clients background-contain bg-yellow">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2 col-md-6 col-sm-6 col-xs-12">
+                    <a class="clients-item" href="#">
+                        <span class="clients-images">
+                            <img src="img/client1.png" class="" alt="logo">
+                            <img src="img/client1-1.png" class="hover" alt="logo">
+                        </span>
+                    </a>
+                </div>
+                <div class="col-lg-2 col-md-6 col-sm-6 col-xs-12">
+                    <a class="clients-item" href="#">
+                        <span class="clients-images">
+                            <img src="img/client2.png" class="" alt="logo">
+                            <img src="img/client2-1.png" class="hover" alt="logo">
+                        </span>
+                    </a>
+                </div>
+                <div class="col-lg-2 col-md-6 col-sm-6 col-xs-12">
+                    <a class="clients-item" href="#">
+                        <span class="clients-images">
+                            <img src="img/client3.png" class="" alt="logo">
+                            <img src="img/client3-1.png" class="hover" alt="logo">
+                        </span>
+                    </a>
+                </div>
+                <div class="col-lg-2 col-md-6 col-sm-6 col-xs-12">
+                    <a class="clients-item" href="#">
+                        <span class="clients-images">
+                            <img src="img/client4.png" class="" alt="logo">
+                            <img src="img/client4-1.png" class="hover" alt="logo">
+                        </span>
+                    </a>
+                </div>
+                <div class="col-lg-2 col-md-6 col-sm-6 col-xs-12">
+                    <a class="clients-item" href="#">
+                        <span class="clients-images">
+                            <img src="img/client5.png" class="" alt="logo">
+                            <img src="img/client5-1.png" class="hover" alt="logo">
+                        </span>
+                    </a>
+                </div>
+                <div class="col-lg-2 col-md-6 col-sm-6 col-xs-12">
+                    <a class="clients-item" href="#">
+                        <span class="clients-images">
+                            <img src="img/client6.png" class="" alt="logo">
+                            <img src="img/client6-1.png" class="hover" alt="logo">
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ... end Clients Block -->
+

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="itemorder">#fff6e3</color>
+    <color name="colorchefrecoomendado">#efe3d8</color>
+    <color name="bordeplato">#b0775d</color>
+    <color name="greencall">#207b1f</color>
+    <color name="marronn">#532814</color>
+    <color name="verdeee">#39692b</color>
+    <color name="rojoooo">#cc0000</color>
+    <color name="averr">#a9a5a5</color>
+    <color name="aaaaaa">#7f7c7c</color>
+    <color name="yellow">#f99b0e</color>
+    <color name="color_general">#0d376a</color>
+    <color name="color_spinner">#e1e1ef</color>
+</resources>

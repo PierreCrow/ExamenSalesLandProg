@@ -1,0 +1,53 @@
+api pro multi empresa
+
+Como se cuando un producto es exonerado inafecto o grabada?
+
+json de resumen de boletas
+
+json nota de credito nota de debido 
+
+
+
+
+C:\laragon\www\apifacturalo\
+
+
+git clone https://gitlab.com/eriquegasparcarlos/apifacturalo.git
+
+
+C:\Users\NombreUsuario\AppData\Roaming\Composer\vendor\bin
+
+
+descargar mysql la vrsion correcta
+
+
+videos :  Worshop #1 - Facturación Electrónica API REST UBL 2.1 + Punto de Venta(POS)
+
+
+
+
+
+
+INSTALAR PHP 7.2
+http://www.dorusomcutean.com/how-to-install-php-7-2-on-windows/
+
+LAVAREL
+https://styde.net/instalacion-de-composer-y-laravel/
+
+
+FACTURAPP SERVER azure
+usuario: Pierre
+pass: Abdiel23456
+
+Mysql root pass: Abdiel123456
+
+
+Server Facturapp:
+User Mysql : Pierre
+Pass Mysql : Abdiel123456
+
+
+
+Servder Prueba:
+User: Administrador
+Pass: Admin12345678
